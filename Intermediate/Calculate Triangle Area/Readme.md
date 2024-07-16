@@ -2,7 +2,7 @@
 - vectors
 - getting vector lengths
 - rotating vector 90 degrees
-- unit vectors
+- unit vectors / normalizing vectors
 - dot product</i>
 
 ## Calculate Triangle Area
@@ -10,11 +10,12 @@
 ![Triangle Area Formula](https://github.com/user-attachments/assets/1590d4f6-6702-41f2-9c13-96c009403951)
 
 Quick reminder: $A = \frac{b\times h}{2}$<br>
-The formula for the area of a triangle is half of its base times its height.<br>
+Is the formula for the area of a triangle: half of its base times its height.<br>
 
-We can also get it with 3 arbitrary 2D points with a simple formula, which is much more useful on computers.<br>
+We can also get the area with 3 arbitrary 2D points with a simple formula, which is much more useful on computers.<br>
+This will be covered on this page.<br>
 
-Start by creating 2 vectors $ab$ and $bc$.
+Start by creating 2 vectors $ab$ and $bc$ from points $a$, $b$ and $c$.
 
 ![Triangle Area Step 01](https://github.com/user-attachments/assets/e8050e9c-8af0-428f-8d82-d6efa1f33509)
 
@@ -24,7 +25,7 @@ If we normalize $ab'$ and apply the dot product with vector $bc$, we get the len
 
 ![Triangle Area Step 02](https://github.com/user-attachments/assets/083239a4-3af1-4411-8e52-8d5eaf1626f8)
 
-Normalizing requires an **expensive square root fuction**, which is not ideal, so lets simplify.<br>
+We could be done here, but getting the length and normalizing requires an **expensive square root fuction**, which is not ideal, so lets simplify.<br>
 
 Let $base = length(ab)$<br>
 And $height = dot(normalize(ab'), bc)$<br>
@@ -34,7 +35,7 @@ Because the division by $length(ab)$ happens for both $x$ and $y$, our dot produ
 
 &nbsp;&nbsp; $ab'.x/length(ab)\times bc.x + ab'.y/length(ab)\times bc.y$<br>
 
-Multiplying by $base$ to get $base\times height$ eliminates the division by $length(ab)$.<br>
+Multiplying by $base$ to get $base\times height$ eliminates the divisions by $length(ab)$.<br>
 
 &nbsp;&nbsp; $ab'.x\times bc.x + ab'.y\times bc.y$<br>
 
@@ -42,7 +43,7 @@ Which is simply the dot product of $ab'$ with $ac$. So our final result:<br>
 
 &nbsp;&nbsp; $A = dot(ab', bc)/2$
 
-This is all we need to get the area! This is computationally fast and only requires to rotate one of its vectors by 90 degrees. This is all done with additions, subtractions and scaling. If it's really critical code, you could even try to ommit the vector components and only use the points. That would look something like this:<br>
+This is all we need to get the area! This is computationally fast and only requires to rotate one of its vectors by 90 degrees. This is all done with additions, subtractions and scaling. If it's really critical code, you could even try to ommit the vector components and only use the points. That would look something like this: _(Saves 1 addition, 1 subtraction and 2 multiplications)_<br>
 ```
 ab = (b.x-a.x, b.y-a.y)
 ab' = (a.y-b.y, b.x-a.x)
