@@ -16,4 +16,6 @@ This works the same the other way around.</br>
 The distance from B to A will be 5(A) - 12(B) = -7</br>
 **Negative distances simply mean facing the other direction.**</br>
 
-**Summary:** Distance from one to the other is **(Target location)** - **(From location)**
+**Summary:** Distance from one to the other is **(Target location)** minus **(From location)**
+
+_(Illustrations coming later)_
