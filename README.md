@@ -16,6 +16,7 @@ Adding content in a random fashion, so not necessarily from beginner to advanced
 
 #### Intermediate Level
 - [Calculate Triangle Area](https://github.com/WMaster7/GameMath/tree/main/Intermediate/Calculate%20Triangle%20Area)
+- [Check If Point Is Inside Triangle](https://github.com/WMaster7/GameMath/tree/main/Intermediate/Check%20Point%20Inside%20Triangle)
 
 #### Advanced Level
 - None Yet
