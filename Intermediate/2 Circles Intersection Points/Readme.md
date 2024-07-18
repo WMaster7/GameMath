@@ -22,4 +22,12 @@ Lets first rule out some obvious cases. Let $d$ be the distance between both cir
 
 ![Circle Intersection Points 03](https://github.com/user-attachments/assets/e17eaf05-62fe-4dd4-a886-2f2f7555bd6a)&nbsp;&nbsp;&nbsp;&nbsp;![Circle Intersection Points 02](https://github.com/user-attachments/assets/87fc7573-ca9d-43b2-afb8-27d138e0ed87)
 
+You may choose to handle the situations where the circles touch from either the inside or outside. This happens when the combined radiuses are exactly the same as the distance, or when one radius is exactly the same as the other radius plus the distance.<br>
+
+Continuing we will cover the case where there are 2 intersections.<br>
+
+Notice that connecting circles from their midpoints will give symmetry on both sides. We can discard one side, work with semicircles and aligning to an axis for visual clarity.<br>
+
+![Circle Intersection Points 04](https://github.com/user-attachments/assets/9fad4fd5-eb5d-470a-b349-cf96e9a53be4)&nbsp;&nbsp;&nbsp;&nbsp;![Circle Intersection Points 05](https://github.com/user-attachments/assets/2b09cf67-3d55-4a3b-b340-c17fb5551129)
+
 
