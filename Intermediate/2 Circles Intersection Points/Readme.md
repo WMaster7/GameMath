@@ -1,13 +1,10 @@
-**(Not Yet Finished)**
-
 <i><b>Required knowledge:</b>
 - pythagoras theorem
 - algebra (solving system of equations)
 - getting distance between points
 - 2d vectors
 - rotating a 2d vector 90 degrees
-- unit vectors / normalizing vectors
-- dot product</i>
+- unit vectors / normalizing vectors</i>
 
 ## Circle to Circle intersection Points
 
@@ -80,9 +77,55 @@ Now that we know $x$ and $h$, we can now find the actual location of both inters
 
 To find the intersection, we take $c_1$ and add the normal vector $n$ multiplied by $d + x$ and add another $n'$ multiplied by either positive $h$ or negative $h$. This way, we move $d + x$ along the axis, and $h$ along the perpendicular, starting from $c_1$.<br>
 
-![Circle Intersection Points 08](https://github.com/user-attachments/assets/441ddfe5-d36d-417f-b5d1-c32e718ef91f)&nbsp;&nbsp;&nbsp;&nbsp;![Circle Intersection Points 09](https://github.com/user-attachments/assets/bec3ab01-938e-483b-9fe7-18f4a342b73a)
+![Circle Intersection Points 08](https://github.com/user-attachments/assets/b29a5e1a-e54e-4180-9d3f-c657a57d6df7)&nbsp;&nbsp;&nbsp;&nbsp;![Circle Intersection Points 09](https://github.com/user-attachments/assets/bec3ab01-938e-483b-9fe7-18f4a342b73a)
 
 It's not required to have circle 1 or 2 ordered in any perticular way. They can be swapped, as long as their centers and radiuses remain correctly assigned in the equations.<br>
 
+### Circles with equal Radiuses
 
+Let's also have a look when 2 circles have the same radius. This states that $r_1 = r_2$ and we can simply call this radius $r$.<br>
 
+Recall our equation for $x$ and replace $r_1$ and $r_2$ with $r$.<br>
+
+&nbsp;&nbsp; $x = (r_1^2 - d^2 - r_2^2) / 2d$<br>
+&nbsp;&nbsp; $x = (r^2 - d^2 - r^2) / 2d$<br>
+
+We can see that we have a postive and a negative $r^2$ term, these cancel eachother and simplify our equation. We can then see that only $-d^2$ remains in the numerator, while we still divide by $2d$ This means that one multiplication or power of $d$ will also be canceled together with the division by $d$.<br>
+
+&nbsp;&nbsp; $x = (-d^2) / 2d$<br>
+&nbsp;&nbsp; $x = -d / 2$<br>
+&nbsp;&nbsp; $x = -\frac{d}{2}$<br>
+
+The result being that $x$ now is just the negative of half the distance between the circles. Since $x$ was an extension of $d$ to find the distance of the intersection along the axis, which now is negative, we can say that $(d + x) = (d - \frac{d}{2}) = \frac{d}{2}$. Meaning that the intersection always lies in the middle of 2 circles with the same radius. This makes sense when seeing a picture.<br>
+
+![Circle Intersection Points 10](https://github.com/user-attachments/assets/34e08615-5fbb-45a8-a1f5-4a0d0d81e9ee)
+
+Recalling our equation for $h$, which now is:<br>
+
+&nbsp;&nbsp; $h = \pm \sqrt{r_2^2 - x^2}$<br>
+&nbsp;&nbsp; $h = \pm \sqrt{r^2 - (-\frac{d}{2})^2}$<br>
+&nbsp;&nbsp; $h = \pm \sqrt{r^2 - \frac{d^2}{4}}$<br>
+
+## Summary
+
+To summarize, we have the following equations when distance $d$ between the circle centers is calculated.<br>
+
+![Circle Intersection Points 11](https://github.com/user-attachments/assets/923298c9-91fc-40b1-ab43-43c9e19b78c6)
+
+&nbsp;&nbsp; $d = distance(c_1, c_2)$<br>
+&nbsp;&nbsp; $x = (r_1^2 - d^2 - r_2^2) / 2d$<br>
+&nbsp;&nbsp; $h = \pm \sqrt{r_2^2 - x^2}$<br>
+
+We can then get normal vectors $n$ and its perpundicular $n'$. Rotating can be in any preferred direction.<br>
+
+&nbsp;&nbsp; $n = (c_2 - c_1) / d$<br>
+&nbsp;&nbsp; $n' = rotate90(n)$<br>
+
+To find intersection points $p_1$ and $p_2$, the vector equations look like this:<br>
+
+&nbsp;&nbsp; $p_1 = c_1 + n * (d + x) + n' * h$<br>
+&nbsp;&nbsp; $p_2 = c_1 + n * (d + x) - n' * h$<br>
+
+![Circle Intersection Points 12](https://github.com/user-attachments/assets/b5e44d25-f5c0-4cbe-b82b-99ab135277b2)
+
+In total there are 2 square roots required. One to find distance $d$, and one to find $h$. You can also use $x$ and $h$ to find intersection area. You could get the **circle sector** area by using the ```Math.atan2()``` function and subtract the triangle area $A = h * (d + x)$ from it. You then do this for both circles and add the result together. More on this in a later explanation.
