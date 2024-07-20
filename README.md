@@ -8,8 +8,8 @@ Mainly with illustrations for clarity.
 Adding content in a random fashion, so not necessarily from beginner to advanced. Difficulty is estimated by myself and may be shifted around in later stages.
 
 ## Table of Content
-#### Complete Beginner Level
-- [Distance Between Values](https://github.com/WMaster7/GameMath/tree/main/Complete%20Beginner/Distance%20Between%20Values)
+#### Basics
+- [Distance Between Values](https://github.com/WMaster7/GameMath/tree/main/Basics/Distance%20Between%20Values)
 
 #### Beginner Level
 - None Yet
